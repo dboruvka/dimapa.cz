@@ -1,4 +1,4 @@
-﻿/* 
+﻿
   .custom-footer__banner22  {
     position: fixed;
     left:   -320px;
@@ -15,12 +15,11 @@
 
   }
 
- */
-  @media (orientation: landscape) 
-{
+
+ @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
   .custom-footer__banner22  
   {
-    left:   -10px;
-    
+    top: 0px;
   }
-}
+} 
