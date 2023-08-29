@@ -1,0 +1,114 @@
+<style>
+/* TLAČÍTKA SE ZAOBALENÝMI ROHY */
+.btn:not(.cart-count), .compact-form .form-control, .pagination > a, .pagination > strong, a.login-btn{border-radius: 4px;}
+
+/* PŘIDÁNÍ E-MAILOVÉ ADRESY DO HLAVIČKY WEBU */
+@media screen and (min-width: 1200px){
+.top-navigation-bar .project-email {display: inline-block;font-size: 16px;font-weight: bold;margin-left: 24px;color: var(--color-primary);} 
+a.project-email::before {content: '\e910';font-size: 16px;} 
+} 
+@media screen and (min-width: 360px) and (max-width: 767px){
+.top-navigation-contacts{display: block !important;}
+.top-navigation-contacts .project-phone{display: none !important;}
+.top-navigation-contacts .project-email{display: block !important;position: absolute;right: 164px;top: 15px;color: #A3A3AF;}
+a.project-email::before {content: '\e910';}
+.top-navigation-contacts .project-email span{display: none;}
+}
+
+/* ZMĚNA BARVY POZADÍ PŘIHLÁŠENÍ K NWL */
+.newsletter {
+background-color: #231f20;
+}
+
+/*Sjednoceni popisu*/
+.basic-description span, .basic-description p {
+font-size: 14px !important;
+}
+
+</style>
+
+<script>
+const processLevel = (path, a) => {
+    //const url = `https://cdn.myshoptet.com/usr/559804.myshoptet.com/user/documents/upload/kategorie/${path.replace(/\s/g, '').replace(/\//g, '').toLowerCase()}.png`;
+    const url = `https://cdn.myshoptet.com/usr/571074.myshoptet.com/user/documents/upload/kategorie/${path.replace(/\s/g, '').replace(/\//g, '').toLowerCase()}.png`;
+    const img = document.createElement('img');
+    img.src = url;
+    img.alt = ''
+    img.onerror=function(){this.style.display='none';};
+    a.appendChild(img);
+}
+window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('#categories > .categories').forEach(el => {
+        const l1 = el.querySelector('.topic a');
+        const name1 = l1.textContent.trim();
+        processLevel(name1, l1);
+        el.querySelectorAll(':scope>ul>li').forEach(el => {
+            const l2 = el.querySelector('a');
+            const name2 = `${name1}-${l2.textContent.trim()}`;
+            processLevel(name2, l2);
+            el.querySelectorAll(':scope>ul>li').forEach(el => {
+                const l3 = el.querySelector('a');
+                const name3 = `${name2}-${l3.textContent.trim()}`;
+                processLevel(name3, l3);
+            })
+        })
+    })
+    document.querySelectorAll('#navigation > .menu > ul > .appended-category').forEach(el => {
+        const l1 = el.querySelector('a');
+        const name1 = l1.querySelector('b').textContent.trim();
+        processLevel(name1, l1);
+        el.querySelectorAll(':scope>ul>li').forEach(el => {
+            const l2 = el.querySelector('a');
+            const name2 = `${name1}-${l2.querySelector('span').textContent.trim()}`;
+            processLevel(name2, l2);            
+            el.querySelectorAll(':scope>ul>li').forEach(el => {
+                const l3 = el.querySelector('a');
+                const name3 = `${name2}-${l3.querySelector('span').textContent.trim()}`;
+                processLevel(name3, l3);            
+            })
+        })
+    })
+});
+</script>
+<style>
+.categories .topic>a, #navigation > .menu > ul > .appended-category > a{
+	padding-left: 50px;
+}
+
+.categories .topic a img {             
+    top: 11px;       
+}
+
+#navigation > .menu > ul > .appended-category > a img {
+	top: 11px;
+}
+
+.categories a img,
+#navigation  .appended-category > a img {
+	  position: absolute;            
+    left: 10px;
+    top: 0px;    
+    max-height: 30px;
+    max-width: 30px;
+    width: auto;
+}
+#navigation  .appended-category > ul > li > a {
+	display: grid;
+    grid-template-columns: 30px auto;
+    grid-template-rows: 1fr;
+    align-items: center;
+    gap: 10px;
+}
+#navigation  .appended-category > ul > li > a span {
+    grid-column: 2;
+    grid-row: 1;
+}
+.categories .cat-trigger{
+	left: auto !important;
+  right: 15px !important;
+}
+.navigation-in ul li.ext.exp > a .submenu-arrow, .navigation-in ul li.ext.exp > div > .submenu-arrow {
+	left: auto !important;
+  right: 15px !important
+}
+</style>

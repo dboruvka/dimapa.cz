@@ -1,0 +1,20 @@
+﻿
+  .custom-footer__banner22  {
+    position: fixed;
+    left:   -320px;
+    top: 100px;
+    transition: left 0.5s ease-in-out;
+   z-index: 9999999999;
+  }
+
+  .custom-footer__banner22 img,
+  .custom-footer__banner22
+  {
+    width: 356px;
+    height: 317px;
+
+  }
+  
+  .custom-footer__banner22:hover {
+    left: 0;
+  }
