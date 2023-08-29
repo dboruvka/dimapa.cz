@@ -1,4 +1,4 @@
-﻿
+﻿/* 
   .custom-footer__banner22  {
     position: fixed;
     left:   -320px;
@@ -14,7 +14,13 @@
     height: 317px;
 
   }
-  
-  .custom-footer__banner22:hover {
-    left: 0;
+
+ */
+  @media (orientation: landscape) 
+{
+  .custom-footer__banner22  
+  {
+    left:   -10px;
+    
   }
+}
