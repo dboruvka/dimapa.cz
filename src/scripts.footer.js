@@ -13,7 +13,7 @@ $(document).ready(function() {
             $('.custom-footer__banner22 ').mouseleave(function() {
                 $(this).animate({
                     left: '-320px'
-                }, 'slow');
+                }, 200);
             });
       });
     });
